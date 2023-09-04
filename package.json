@@ -2,6 +2,7 @@
   "name": "car-rental-service",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://DmytroSadovskyi.github.io/car-rental-service/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
