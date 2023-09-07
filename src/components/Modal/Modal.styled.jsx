@@ -55,15 +55,17 @@ export const Model = styled.span`
 `;
 
 export const CarInfoWrapper = styled.div`
-  margin-bottom: 24px;
-  width: 390px;
+  margin-bottom: 14px;
+  width: 461px;
+  &:nth-child(2) {
+    margin-bottom: 24px;
+  }
 `;
 
 export const ModalCarInfo = styled.ul`
-  width: 390px;
+  width: 300px;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 14px;
   gap: 4px;
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
