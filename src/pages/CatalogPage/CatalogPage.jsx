@@ -12,10 +12,11 @@ const CatalogPage = () => {
   const [isloading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    const controller = new AbortController();
     const getAllCars = async () => {
       try {
         setIsLoading(true);
-        const result = await fetchCars();
+        const result = await fetchCars(controller);
         console.log(result);
         setCars(result);
       } catch (error) {
@@ -30,6 +31,10 @@ const CatalogPage = () => {
     };
 
     getAllCars();
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   const indexOfLastCar = currentPage * carsPerPage;
