@@ -42,6 +42,7 @@ export const Modal = ({
   engineSize,
   mileage,
   rentalConditions,
+  description,
 }) => {
   const splittedAddress = address ? address.split(',') : [];
   const country = splittedAddress.length > 1 ? splittedAddress[1] : '';
@@ -98,10 +99,7 @@ export const Modal = ({
             <CarInfoItem>Engine Size: {engineSize}</CarInfoItem>
           </ModalCarInfo>
         </CarInfoWrapper>
-        <CarDescription>
-          The Buick Enclave is a stylish and spacious SUV known for its
-          comfortable ride and luxurious features.
-        </CarDescription>
+        <CarDescription>{description}</CarDescription>
         <CarInfoWrapper>
           <Title>Accessories and functionalities:</Title>
           <CarInfo>
