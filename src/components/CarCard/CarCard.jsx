@@ -11,8 +11,8 @@ import {
   CarName,
   IconWrapper,
 } from './CarCard.styled';
-import { ReactComponent as HeartIcon } from '../../images/heart.svg';
-import { ReactComponent as HeartIconFavorite } from '../../images/heart-favorite.svg';
+import { ReactComponent as HeartIcon } from '../../images/icons/heart.svg';
+import { ReactComponent as HeartIconFavorite } from '../../images/icons/heart-favorite.svg';
 
 import { useState } from 'react';
 import { Modal } from 'components/Modal/Modal';

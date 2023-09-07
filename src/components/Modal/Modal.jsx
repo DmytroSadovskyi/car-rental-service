@@ -17,7 +17,7 @@ import {
   RentalLink,
 } from './Modal.styled';
 
-import { ReactComponent as CloseIcon } from '../../images/close-icon.svg';
+import { ReactComponent as CloseIcon } from '../../images/icons/close-icon.svg';
 import {
   CarInfo,
   CarInfoItem,
