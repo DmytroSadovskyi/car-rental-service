@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkcar_rental_service=self.webpackChunkcar_rental_service||[]).push([[680],{680:function(e,r,a){a.r(r);var n=a(184);r.default=function(){return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)("h1",{children:"DreamCar rental"}),(0,n.jsx)("p",{children:"Welcome to DreamCar rental"})]})}}}]);
-//# sourceMappingURL=680.d5f15791.chunk.js.map
