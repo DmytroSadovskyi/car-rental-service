@@ -1,5 +1,6 @@
 import CarCard from 'components/CarCard/CarCard';
 import { useEffect, useState } from 'react';
+
 import fetchCars from 'services/carsApi';
 import { CarsList, LoadMoreBtn } from './CatalogPage.styled';
 
@@ -35,27 +36,7 @@ const CatalogPage = () => {
       {isloading && <p>Loading cars...</p>}
       <CarsList>
         {currentCars.map(car => (
-          <li key={car.id}>
-            {
-              <CarCard
-                year={car.year}
-                make={car.make}
-                model={car.model}
-                img={car.img}
-                type={car.type}
-                engineSize={car.engineSize}
-                fuelConsumption={car.fuelConsumption}
-                id={car.id}
-                functionalities={car.functionalities}
-                rentalPrice={car.rentalPrice}
-                rentalCompany={car.rentalCompany}
-                rentalConditions={car.rentalConditions}
-                address={car.address}
-                accessories={car.accessories}
-                mileage={car.mileage}
-              />
-            }
-          </li>
+          <li key={car.id}>{<CarCard car={car} />}</li>
         ))}
       </CarsList>
       {cars.length > indexOfLastCar && (
