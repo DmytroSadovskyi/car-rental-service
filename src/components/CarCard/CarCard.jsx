@@ -9,29 +9,30 @@ import {
   CarInfoItem,
   Country,
   CarName,
+  IconWrapper,
 } from './CarCard.styled';
 import { ReactComponent as HeartIcon } from '../../images/heart.svg';
+import { ReactComponent as HeartIconFavorite } from '../../images/heart-favorite.svg';
+
 import { useState } from 'react';
 import { Modal } from 'components/Modal/Modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToFavorites, removeFromFavorites } from 'redux/favoriteSlice';
 
-const CarCard = ({
-  id,
-  year,
-  make,
-  model,
-  img,
-  type,
-  engineSize,
-  fuelConsumption,
-  functionalities,
-  rentalPrice,
-  rentalCompany,
-  address,
-  rentalConditions,
-  accessories,
-  mileage,
-}) => {
-  const splittedAddress = address ? address.split(',') : [];
+const CarCard = ({ car }) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector(state => state.favorites);
+  const addFavorite = () => {
+    dispatch(addToFavorites(car));
+  };
+
+  const removeFavorite = () => {
+    dispatch(removeFromFavorites(car));
+  };
+
+  const isFavorite = favorites?.some(favoriteCar => favoriteCar?.id === car.id);
+
+  const splittedAddress = car.address ? car.address.split(',') : [];
 
   const country = splittedAddress.length > 1 ? splittedAddress[1] : '';
   const city = splittedAddress.length > 2 ? splittedAddress[2] : '';
@@ -49,30 +50,33 @@ const CarCard = ({
   return (
     <CardWrapper>
       <ImageWrapper>
-        <HeartIcon
+        <IconWrapper
           aria-label="heart icon"
-          style={{ position: 'absolute', top: '14px', right: '14px' }}
-        />
-        <CarImage src={img} alt={`${make} ${model}`} />
+          onClick={!isFavorite ? addFavorite : removeFavorite}
+        >
+          {isFavorite ? <HeartIconFavorite /> : <HeartIcon />}
+        </IconWrapper>
+
+        <CarImage src={car.img} alt={`${car.make} ${car.model}`} />
       </ImageWrapper>
       <div>
         <Wrapper>
           <CarName>
-            {make}
-            <Model>{model}</Model>, {year}
+            {car.make}
+            <Model>{car.model}</Model>, {car.year}
           </CarName>
-          <span>{rentalPrice}</span>
+          <span>{car.rentalPrice}</span>
         </Wrapper>
         <CarInfo>
           <CarInfoItem>
             <Country>{country}</Country>
             <span>{city}</span>
           </CarInfoItem>
-          <CarInfoItem>{rentalCompany}</CarInfoItem>
-          <CarInfoItem>{type}</CarInfoItem>
-          <CarInfoItem>{model}</CarInfoItem>
-          <CarInfoItem>{id}</CarInfoItem>
-          <CarInfoItem>{functionalities[0]}</CarInfoItem>
+          <CarInfoItem>{car.rentalCompany}</CarInfoItem>
+          <CarInfoItem>{car.type}</CarInfoItem>
+          <CarInfoItem>{car.model}</CarInfoItem>
+          <CarInfoItem>{car.id}</CarInfoItem>
+          <CarInfoItem>{car.functionalities[0]}</CarInfoItem>
         </CarInfo>
       </div>
       <LearnMoreBtn type="button" onClick={openModal}>
@@ -80,22 +84,23 @@ const CarCard = ({
       </LearnMoreBtn>
       {isModalOpen && (
         <Modal
-          image={img}
+          image={car.img}
           onClose={closeModal}
-          id={id}
-          year={year}
-          make={make}
-          model={model}
-          type={type}
-          functionalities={functionalities}
-          rentalPrice={rentalPrice}
-          rentalCompany={rentalCompany}
-          address={address}
-          accessories={accessories}
-          engineSize={engineSize}
-          fuelConsumption={fuelConsumption}
-          rentalConditions={rentalConditions}
-          mileage={mileage}
+          id={car.id}
+          year={car.year}
+          make={car.make}
+          model={car.model}
+          type={car.type}
+          functionalities={car.functionalities}
+          rentalPrice={car.rentalPrice}
+          rentalCompany={car.rentalCompany}
+          address={car.address}
+          accessories={car.accessories}
+          engineSize={car.engineSize}
+          fuelConsumption={car.fuelConsumption}
+          rentalConditions={car.rentalConditions}
+          mileage={car.mileage}
+          description={car.description}
         />
       )}
     </CardWrapper>
