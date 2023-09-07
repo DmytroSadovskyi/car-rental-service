@@ -1,5 +1,6 @@
 import CarCard from 'components/CarCard/CarCard';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import fetchCars from 'services/carsApi';
 import { CarsList, LoadMoreBtn } from './CatalogPage.styled';
@@ -11,20 +12,29 @@ const CatalogPage = () => {
   const [isloading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    const abortController = new AbortController();
     const getAllCars = async () => {
       try {
         setIsLoading(true);
-        const result = await fetchCars();
+        const result = await fetchCars(abortController);
         console.log(result);
         setCars(result);
       } catch (error) {
-        console.error(error);
+        if (axios.isCancel(error)) {
+          console.log('Запит було скасовано', error.message);
+        } else {
+          console.error('Помилка при виконанні запиту', error);
+        }
       } finally {
         setIsLoading(false);
       }
     };
 
     getAllCars();
+
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
   const indexOfLastCar = currentPage * carsPerPage;
