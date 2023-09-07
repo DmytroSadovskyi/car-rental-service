@@ -21,6 +21,16 @@ export const CarImage = styled.img`
   object-position: center;
 `;
 
+export const IconWrapper = styled.button`
+  position: absolute;
+  margin: 0;
+  top: 14px;
+  right: 14px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
