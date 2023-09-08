@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Anna",
+    "review": "Very good service! I love it!"
+  },
+  {
+    "id": 2,
+    "name": "Alex",
+    "review": "Great!"
+  },
+  {
+    "id": 3,
+    "name": "Dmytro",
+    "review": "Wide range of cars, good prices"
+  },
+  {
+    "id": 4,
+    "name": "Katya",
+    "review": "I will advice this service to all my friends!"
+  },
+  {
+    "id": 5,
+    "name": "Sophia",
+    "review": "Excellent customer support and easy booking process!"
+  },
+  {
+    "id": 6,
+    "name": "John",
+    "review": "Affordable and reliable service. Highly recommended!"
+  }
+]
