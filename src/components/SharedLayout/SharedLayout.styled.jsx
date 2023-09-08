@@ -5,10 +5,10 @@ export const Header = styled.header`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 12px;
   padding: 8px 8px;
-  margin-bottom: 16px;
+
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
@@ -19,20 +19,8 @@ export const Header = styled.header`
 
 export const Container = styled.div`
   width: 100%;
-  padding: 20px 15px;
+  padding: 20px 20px;
   margin: 0 auto;
-
-  /* @media screen and (min-width: 480px) {
-    max-width: 448px;
-  }
-
-  @media screen and (min-width: 768px) {
-    max-width: 720px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    max-width: 1200px;
-  } */
 `;
 
 export const StyledLink = styled(NavLink)`
