@@ -15,14 +15,11 @@ import {
   RentalInfoItem,
   RentalInfo,
   RentalLink,
+  CarInfoSecondary,
 } from './Modal.styled';
 
 import { ReactComponent as CloseIcon } from '../../images/icons/close-icon.svg';
-import {
-  CarInfo,
-  CarInfoItem,
-  Country,
-} from 'components/CarCard/CarCard.styled';
+import { CarInfoItem, Country } from 'components/CarCard/CarCard.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -102,14 +99,14 @@ export const Modal = ({
         <CarDescription>{description}</CarDescription>
         <CarInfoWrapper>
           <Title>Accessories and functionalities:</Title>
-          <CarInfo>
+          <CarInfoSecondary>
             <CarInfoItem>{accessories[0]}</CarInfoItem>
             <CarInfoItem>{accessories[1]}</CarInfoItem>
             <CarInfoItem>{accessories[2]}</CarInfoItem>
             <CarInfoItem>{functionalities[0]}</CarInfoItem>
             <CarInfoItem>{functionalities[1]}</CarInfoItem>
             <CarInfoItem>{functionalities[2]}</CarInfoItem>
-          </CarInfo>
+          </CarInfoSecondary>
         </CarInfoWrapper>
 
         <div>
