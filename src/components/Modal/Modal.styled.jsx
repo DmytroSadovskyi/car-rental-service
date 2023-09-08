@@ -55,11 +55,7 @@ export const Model = styled.span`
 `;
 
 export const CarInfoWrapper = styled.div`
-  margin-bottom: 14px;
   width: 461px;
-  &:nth-child(2) {
-    margin-bottom: 24px;
-  }
 `;
 
 export const ModalCarInfo = styled.ul`
@@ -67,6 +63,7 @@ export const ModalCarInfo = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
+  margin-bottom: 14px;
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   font-weight: 400;
@@ -87,6 +84,17 @@ export const Title = styled.p`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.43;
+`;
+
+export const CarInfoSecondary = styled.ul`
+  color: rgba(18, 20, 23, 0.5);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  gap: 4px;
 `;
 
 export const RentalInfo = styled.ul`
