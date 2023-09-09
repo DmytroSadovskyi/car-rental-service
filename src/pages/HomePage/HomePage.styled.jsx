@@ -18,6 +18,7 @@ export const HeroTitle = styled.h1`
   margin: 0 auto;
   margin-bottom: 10px;
   color: #fff;
+  text-align: center;
 `;
 
 export const HeroDescription = styled.p`
