@@ -4,11 +4,15 @@ import image from '../../images/1079101.jpg';
 export const Hero = styled.section`
   padding-top: 200px;
   padding-bottom: 118px;
-  background-image: url(${image});
+  background-image: linear-gradient(
+      to right,
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.8)
+    ),
+    url(${image});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
   height: 600px;
 `;
 
@@ -53,6 +57,13 @@ export const StyledLink = styled(Link)`
   font-weight: 600;
   line-height: 1.43;
   text-decoration: none;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: #0b44cd;
+  }
 `;
 
 export const BenefitsTitle = styled.h2`
