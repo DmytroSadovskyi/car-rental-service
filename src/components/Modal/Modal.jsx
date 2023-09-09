@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { useEffect, useCallback } from 'react';
 import {
   ModalBackdrop,
-  ModalContent,
   Image,
   CloseBtn,
   Model,
@@ -15,10 +14,15 @@ import {
   RentalInfoItem,
   RentalInfo,
   RentalLink,
-  CarInfoSecondary,
+  AccessoriesInfo,
+  AccessoriesInfoTitle,
+  AccessoriesInfoList,
+  AccessoriesInfoItem,
+  ModalWrapper,
+  Wrapper,
+  IconClose,
 } from './Modal.styled';
 
-import { ReactComponent as CloseIcon } from '../../images/icons/close-icon.svg';
 import { CarInfoItem, Country } from 'components/CarCard/CarCard.styled';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -74,60 +78,63 @@ export const Modal = ({
 
   return createPortal(
     <ModalBackdrop onClick={handleBackdropClick}>
-      <ModalContent>
-        <CloseBtn type="button" aria-label="close button" onClick={onClose}>
-          <CloseIcon />
-        </CloseBtn>
-        <Image src={image} alt={`${make} ${model}`} />
-        <CarInfoWrapper>
-          <ModalCarName>
-            {make}
-            <Model>{model}</Model>, {year}
-          </ModalCarName>
-          <ModalCarInfo>
-            <CarInfoItem>
-              <Country>{country}</Country>
-              <span>{city}</span>
-            </CarInfoItem>
-            <CarInfoItem>id: {id}</CarInfoItem>
-            <CarInfoItem>Year: {year}</CarInfoItem>
-            <CarInfoItem>Type: {type}</CarInfoItem>
-            <CarInfoItem>Fuel Consumption: {fuelConsumption}</CarInfoItem>
-            <CarInfoItem>Engine Size: {engineSize}</CarInfoItem>
-          </ModalCarInfo>
-        </CarInfoWrapper>
-        <CarDescription>{description}</CarDescription>
-        <CarInfoWrapper>
-          <Title>Accessories and functionalities:</Title>
-          <CarInfoSecondary>
-            <CarInfoItem>{accessories[0]}</CarInfoItem>
-            <CarInfoItem>{accessories[1]}</CarInfoItem>
-            <CarInfoItem>{accessories[2]}</CarInfoItem>
-            <CarInfoItem>{functionalities[0]}</CarInfoItem>
-            <CarInfoItem>{functionalities[1]}</CarInfoItem>
-            <CarInfoItem>{functionalities[2]}</CarInfoItem>
-          </CarInfoSecondary>
-        </CarInfoWrapper>
+      <ModalWrapper>
+        <Wrapper>
+          <CloseBtn type="button" aria-label="close button" onClick={onClose}>
+            <IconClose />
+          </CloseBtn>
+          <Image src={image} alt={`${make} ${model}`} />
+          <CarInfoWrapper>
+            <ModalCarName>
+              {make}
+              <Model>{model}</Model>, {year}
+            </ModalCarName>
+            <ModalCarInfo>
+              <CarInfoItem>
+                <Country>{country}</Country>
+                <span>{city}</span>
+              </CarInfoItem>
+              <CarInfoItem>id: {id}</CarInfoItem>
+              <CarInfoItem>Year: {year}</CarInfoItem>
+              <CarInfoItem>Type: {type}</CarInfoItem>
+              <CarInfoItem>Fuel Consumption: {fuelConsumption}</CarInfoItem>
+              <CarInfoItem>Engine Size: {engineSize}</CarInfoItem>
+            </ModalCarInfo>
+          </CarInfoWrapper>
+          <CarDescription>{description}</CarDescription>
+          <AccessoriesInfo>
+            <AccessoriesInfoTitle>
+              Accessories and functionalities:
+            </AccessoriesInfoTitle>
+            <AccessoriesInfoList>
+              <AccessoriesInfoItem>{accessories[0]}</AccessoriesInfoItem>
+              <AccessoriesInfoItem>{accessories[1]}</AccessoriesInfoItem>
+              <AccessoriesInfoItem>{accessories[2]}</AccessoriesInfoItem>
+              <AccessoriesInfoItem>{functionalities[0]}</AccessoriesInfoItem>
+              <AccessoriesInfoItem>{functionalities[1]}</AccessoriesInfoItem>
+              <AccessoriesInfoItem>{functionalities[2]}</AccessoriesInfoItem>
+            </AccessoriesInfoList>
+          </AccessoriesInfo>
 
-        <div>
-          <Title>Rental Conditions:</Title>
-          <RentalInfo>
-            <RentalInfoItem>
-              Minimum age: <span>{number}</span>
-            </RentalInfoItem>
-            <RentalInfoItem>{splittedRentalConditions[1]}</RentalInfoItem>
-            <RentalInfoItem>{splittedRentalConditions[2]}</RentalInfoItem>
-            <RentalInfoItem>
-              Mileage: <span>{mileage.toLocaleString('en-EN')}</span>
-            </RentalInfoItem>
-            <RentalInfoItem>
-              Price: <span>{rentalPrice}</span>
-            </RentalInfoItem>
-          </RentalInfo>
-        </div>
-
-        <RentalLink href="tel:+380730000000">Rental car</RentalLink>
-      </ModalContent>
+          <div>
+            <Title>Rental Conditions:</Title>
+            <RentalInfo>
+              <RentalInfoItem>
+                Minimum age: <span>{number}</span>
+              </RentalInfoItem>
+              <RentalInfoItem>{splittedRentalConditions[1]}</RentalInfoItem>
+              <RentalInfoItem>{splittedRentalConditions[2]}</RentalInfoItem>
+              <RentalInfoItem>
+                Mileage: <span>{mileage.toLocaleString('en-EN')}</span>
+              </RentalInfoItem>
+              <RentalInfoItem>
+                Price: <span>{rentalPrice}</span>
+              </RentalInfoItem>
+            </RentalInfo>
+          </div>
+          <RentalLink href="tel:+380730000000">Rental car</RentalLink>
+        </Wrapper>
+      </ModalWrapper>
     </ModalBackdrop>,
     modalRoot
   );
