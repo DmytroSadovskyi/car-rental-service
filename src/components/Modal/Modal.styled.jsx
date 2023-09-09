@@ -27,7 +27,7 @@ export const ModalWrapper = styled.div`
   border-radius: 24px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
-  @media screen and (max-width: 1080px) {
+  @media screen and (max-height: 815px) {
     height: 600px;
     overflow-y: scroll;
     overflow-x: hidden;
