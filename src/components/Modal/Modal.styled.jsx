@@ -136,4 +136,11 @@ export const RentalLink = styled.a`
   font-weight: 600;
   line-height: 1.43;
   text-decoration: none;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: #0b44cd;
+  }
 `;
