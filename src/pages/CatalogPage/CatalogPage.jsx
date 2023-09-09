@@ -5,6 +5,7 @@ import axios from 'axios';
 import fetchCars from 'services/carsApi';
 import { CarsList, LoadMoreBtn } from './CatalogPage.styled';
 import { Container } from 'components/SharedLayout/SharedLayout.styled';
+import FallBackLoader from 'FallBackLoader/FallBackLoader';
 
 const CatalogPage = () => {
   const [cars, setCars] = useState([]);
@@ -42,7 +43,7 @@ const CatalogPage = () => {
   const handleLoadMore = () => setCurrentPage(prevPage => prevPage + 1);
   return (
     <section>
-      {isLoading && <p>Loading cars...</p>}
+      {isLoading && <FallBackLoader />}
       <Container>
         <CarsList>
           {currentCars.map(car => (
