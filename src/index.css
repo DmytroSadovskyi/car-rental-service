@@ -45,6 +45,10 @@ body {
   font-family: 'Manrope', sans-serif;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 ol,
 ul {
   list-style: none;

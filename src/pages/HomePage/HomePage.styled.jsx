@@ -8,7 +8,7 @@ export const Hero = styled.section`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  max-width: 1600px;
+
   height: 600px;
 `;
 

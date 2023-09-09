@@ -18,7 +18,7 @@ export const ModalWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
+  background-color: #fff;
   border-radius: 24px;
   padding: 20px;
   max-width: 320px;
@@ -26,9 +26,17 @@ export const ModalWrapper = styled.div`
 
   border-radius: 24px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  @media (min-width: 768px) {
+
+  @media screen and (max-width: 767px) {
+    height: 800px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 570px) {
     padding: 30px;
     max-width: 100%;
+    max-height: 100%;
   }
   @media (min-width: 1440px) {
     padding: 40px;
@@ -39,13 +47,10 @@ export const ModalWrapper = styled.div`
 export const Wrapper = styled.div`
   position: relative;
 
-  background-color: white;
+  background-color: #fff;
   border-radius: 24px;
 
   @media (min-width: 768px) {
-    width: 461px;
-  }
-  @media (min-width: 1440px) {
     width: 461px;
   }
 `;
@@ -203,9 +208,6 @@ export const RentalInfo = styled.ul`
   gap: 8px;
   margin-bottom: 24px;
   @media (min-width: 768px) {
-    width: 100%;
-  }
-  @media (min-width: 1440px) {
     width: 100%;
   }
 `;
