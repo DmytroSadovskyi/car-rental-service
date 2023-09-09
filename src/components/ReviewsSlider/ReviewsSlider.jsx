@@ -8,6 +8,7 @@ import {
   BtnArrowNext,
   IconLeft,
   IconRight,
+  Img,
 } from './ReviewsSlider.styled';
 import { useEffect, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
@@ -65,6 +66,8 @@ export const ReviewsSlider = ({ reviews }) => {
           {reviews.map(review => (
             <li key={review.id}>
               <ReviewWrapper>
+                <Img src={review.avatar} alt={review.name} />
+
                 <div>
                   <Name>{review.name}</Name>
                   <Review>{review.review}</Review>
