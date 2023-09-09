@@ -2,6 +2,7 @@ import CarCard from 'components/CarCard/CarCard';
 import { useSelector } from 'react-redux';
 import { CarsList } from 'pages/CatalogPage/CatalogPage.styled';
 import { Container } from 'components/SharedLayout/SharedLayout.styled';
+import { Text } from './FavoritesPage.styled';
 
 const FavoritesPage = () => {
   const favoriteCars = useSelector(state => state.favorites);
@@ -15,7 +16,7 @@ const FavoritesPage = () => {
             ))}
           </CarsList>
         ) : (
-          <p>There are no favorite cars yet</p>
+          <Text>There are no favorite cars yet</Text>
         )}
       </Container>
     </section>
