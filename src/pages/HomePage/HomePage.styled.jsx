@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 import image from '../../images/road-mountains-sunset-path-163848.jpeg';
 export const Hero = styled.section`
-  padding-top: 200px;
+  padding-top: 70px;
   padding-bottom: 118px;
   background-image: url(${image});
   background-repeat: no-repeat;
@@ -24,7 +24,7 @@ export const HeroTitle = styled.h1`
 export const HeroDescription = styled.p`
   max-width: 700px;
   margin: 0 auto;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   color: #fff;
   text-align: center;
 `;
