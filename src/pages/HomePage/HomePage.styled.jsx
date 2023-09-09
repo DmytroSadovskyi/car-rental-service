@@ -13,6 +13,9 @@ export const Hero = styled.section`
 `;
 
 export const HeroTitle = styled.h1`
+  @media screen and (min-width: 344px) {
+    width: 300px;
+  }
   font-family: Inter;
   width: 200px;
   margin: 0 auto;
