@@ -26,7 +26,7 @@ const HomePage = () => {
             experience the joy of discovery, and enjoy hassle-free mobility.
           </HeroDescription>
           <LinkWrapper>
-            <StyledLink to="/catalog">Explore Our Fleet</StyledLink>
+            <StyledLink to="/catalog">Explore Our Cars</StyledLink>
           </LinkWrapper>
         </Container>
       </Hero>
