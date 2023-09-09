@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { ReactComponent as CloseIcon } from '../../images/icons/close-icon.svg';
 
 export const ModalBackdrop = styled.div`
   position: fixed;
@@ -12,22 +13,84 @@ export const ModalBackdrop = styled.div`
   background: rgba(18, 20, 23, 0.5);
 `;
 
-export const ModalContent = styled.div`
-  position: relative;
-  width: 541px;
-  background-color: #ffff;
-  padding: 40px;
+export const ModalWrapper = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
   border-radius: 24px;
+  padding: 20px;
+  max-width: 320px;
+  z-index: 100;
+
+  border-radius: 24px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  @media (min-width: 768px) {
+    padding: 30px;
+    max-width: 100%;
+  }
+  @media (min-width: 1440px) {
+    padding: 40px;
+    max-width: 100%;
+  }
+`;
+
+export const Wrapper = styled.div`
+  position: relative;
+
+  background-color: white;
+  border-radius: 24px;
+
+  @media (min-width: 768px) {
+    width: 461px;
+  }
+  @media (min-width: 1440px) {
+    width: 461px;
+  }
 `;
 
 export const CloseBtn = styled.button`
   position: absolute;
-  top: 16px;
-  right: 20px;
+  color: black;
+  top: -12px;
+  right: 0px;
   background-color: transparent;
-  width: 24px;
-  height: 24px;
+  width: 10px;
+  height: 10px;
   border: none;
+  cursor: pointer;
+  @media (min-width: 768px) {
+    top: -22px;
+    right: -12px;
+    width: 20px;
+    height: 20px;
+  }
+  @media (min-width: 1440px) {
+    top: -30px;
+    right: -20px;
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+export const IconClose = styled(CloseIcon)`
+  display: block;
+  color: #121417;
+  width: 14px;
+  height: 14px;
+  @media (min-width: 768px) {
+    top: -22px;
+    right: -12px;
+    width: 20px;
+    height: 20px;
+  }
+  @media (min-width: 1440px) {
+    top: -30px;
+    right: -20px;
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 export const Image = styled.img`
@@ -86,6 +149,42 @@ export const Title = styled.p`
   line-height: 1.43;
 `;
 
+export const AccessoriesInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0;
+`;
+
+export const AccessoriesInfoTitle = styled.p`
+  color: #121417;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 8px;
+`;
+
+export const AccessoriesInfoList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  color: rgba(18, 20, 23, 0.5);
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  gap: 3px;
+`;
+
+export const AccessoriesInfoItem = styled.li`
+  color: rgba(18, 20, 23, 0.5);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  border-right: 1px solid rgba(18, 20, 23, 0.2);
+  padding-right: 3px;
+`;
+
 export const CarInfoSecondary = styled.ul`
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
@@ -98,11 +197,17 @@ export const CarInfoSecondary = styled.ul`
 `;
 
 export const RentalInfo = styled.ul`
-  width: 400px;
+  width: 320px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 24px;
+  @media (min-width: 768px) {
+    width: 100%;
+  }
+  @media (min-width: 1440px) {
+    width: 100%;
+  }
 `;
 
 export const RentalInfoItem = styled.li`
