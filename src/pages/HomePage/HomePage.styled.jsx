@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
-import image from '../../images/road-mountains-sunset-path-163848.jpeg';
+import image from '../../images/1079101.jpg';
 export const Hero = styled.section`
-  padding-top: 70px;
+  padding-top: 200px;
   padding-bottom: 118px;
   background-image: url(${image});
   background-repeat: no-repeat;
