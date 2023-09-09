@@ -7,6 +7,11 @@ export const StyledSlider = styled(Slider)`
   display: flex;
   justify-content: center;
   width: 100%;
+
+  @media screen and (min-width: 900px) {
+    width: 50%;
+    margin: 0 auto;
+  }
 `;
 
 export const ReviewsWrapper = styled.div`
