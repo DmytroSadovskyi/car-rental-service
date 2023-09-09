@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkcar_rental_service=self.webpackChunkcar_rental_service||[]).push([[413],{4413:function(e,r,n){n.r(r);var c=n(2227),i=n(9434),t=n(458),s=n(2906),a=n(184);r.default=function(){var e=(0,i.v9)((function(e){return e.favorites}));return(0,a.jsx)("section",{children:(0,a.jsx)(s.W2,{children:e.length>0?(0,a.jsx)(t.H,{children:e.map((function(e){return(0,a.jsx)("li",{children:(0,a.jsx)(c.Z,{car:e})},e.id)}))}):(0,a.jsx)("p",{children:"There are no favorite cars yet"})})})}}}]);
-//# sourceMappingURL=413.9c2ff5f6.chunk.js.map
