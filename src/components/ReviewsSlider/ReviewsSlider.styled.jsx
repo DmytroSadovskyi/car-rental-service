@@ -5,12 +5,12 @@ import { ReactComponent as ArrowRight } from '../../images/icons/down-arrow-righ
 
 export const StyledSlider = styled(Slider)`
   display: flex;
-  width: 100%;
   justify-content: center;
+  width: 100%;
 `;
 
 export const ReviewsWrapper = styled.div`
-  padding: 0 20px 0px 20px;
+  padding: 0 20px 122px 20px;
 
   display: flex;
   flex-direction: column;
@@ -18,11 +18,11 @@ export const ReviewsWrapper = styled.div`
   background-color: #fff;
 
   @media screen and (min-width: 768px) {
-    padding: 0 50px 0px 50px;
+    padding: 0 94px 179px 94px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding: 0 50px 0px 50px;
+    padding: 0 128px 211px 128px;
   }
 `;
 
@@ -32,14 +32,14 @@ export const ReviewWrapper = styled.div`
   display: flex;
   gap: 18px;
 
-  height: 120px;
+  height: 170px;
 
   border-radius: 8px;
   border: 1px solid rgba(17, 17, 17, 0.1);
 
-  /* @media screen and (min-width: 768px) {
-    height: 100px;
-  } */
+  @media screen and (min-width: 768px) {
+    height: 155px;
+  }
 
   @media screen and (min-width: 1440px) {
     margin-right: 24px;
@@ -55,7 +55,6 @@ export const Name = styled.h3`
 `;
 
 export const Review = styled.p`
-  margin-top: 24px;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28;
