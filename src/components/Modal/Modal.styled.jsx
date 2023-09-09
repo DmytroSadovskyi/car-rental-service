@@ -53,8 +53,8 @@ export const Wrapper = styled.div`
 export const CloseBtn = styled.button`
   position: absolute;
   color: black;
-  top: -12px;
-  right: 0px;
+  top: -10px;
+  right: -3px;
   background-color: transparent;
   width: 10px;
   height: 10px;
