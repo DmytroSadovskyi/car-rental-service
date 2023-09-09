@@ -8,11 +8,15 @@ const FavoritesPage = () => {
   return (
     <section>
       <Container>
-        <CarsList>
-          {favoriteCars.map(car => (
-            <li key={car.id}>{<CarCard car={car} />}</li>
-          ))}
-        </CarsList>
+        {favoriteCars.length > 0 ? (
+          <CarsList>
+            {favoriteCars.map(car => (
+              <li key={car.id}>{<CarCard car={car} />}</li>
+            ))}
+          </CarsList>
+        ) : (
+          <p>There are no favorite cars yet</p>
+        )}
       </Container>
     </section>
   );
