@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 import image from '../../images/road.jpg';
+
 export const Hero = styled.section`
   padding-top: 200px;
   padding-bottom: 118px;
@@ -14,6 +15,23 @@ export const Hero = styled.section`
   background-position: center;
   background-size: cover;
   height: 600px;
+`;
+
+export const HeroContainer = styled.div`
+  width: 320px;
+  padding: 0 10px;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    width: 768px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+  @media (min-width: 1440px) {
+    width: 1440px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
 `;
 
 export const HeroTitle = styled.h1`
@@ -124,6 +142,23 @@ export const BenefitText = styled.p`
   letter-spacing: 0.03em;
   @media screen and (max-width: 767px) {
     text-align: center;
+  }
+`;
+
+export const ReviewsContainer = styled.div`
+  width: 320px;
+  padding: 15px 10px;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    width: 768px;
+    padding: 20px 20px;
+    margin: 0 auto;
+  }
+  @media (min-width: 1440px) {
+    width: 1440px;
+    padding: 20px 20px;
+    margin: 0 auto;
   }
 `;
 
