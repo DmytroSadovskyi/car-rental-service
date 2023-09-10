@@ -15,30 +15,18 @@ export const StyledSlider = styled(Slider)`
 `;
 
 export const ReviewsWrapper = styled.div`
-  padding: 0 20px 122px 20px;
-
+  padding: 0 20px 94px 20px;
   display: flex;
   flex-direction: column;
 
   background-color: #fff;
-
-  @media screen and (min-width: 768px) {
-    padding: 0 94px 179px 94px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    padding: 0 128px 211px 128px;
-  }
 `;
 
 export const ReviewWrapper = styled.div`
   padding: 32px;
-
   display: flex;
   gap: 18px;
-
   height: 170px;
-
   border-radius: 8px;
   border: 1px solid rgba(17, 17, 17, 0.1);
 
