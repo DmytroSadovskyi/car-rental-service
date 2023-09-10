@@ -77,7 +77,7 @@ the "Learn more" button is clicked.
 
 ### ReviewsSlider
 
-Displays customer reviews and ratings.
+Displays customer reviews.
 
 Thank you for using DreamCar Rental! We hope you enjoy your journey with us. If
 you have any questions or feedback, please don't hesitate to
