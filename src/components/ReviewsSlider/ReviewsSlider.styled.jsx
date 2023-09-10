@@ -18,7 +18,6 @@ export const ReviewsWrapper = styled.div`
   padding: 0 20px 94px 20px;
   display: flex;
   flex-direction: column;
-
   background-color: #fff;
 `;
 
