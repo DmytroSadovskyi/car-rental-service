@@ -1,5 +1,4 @@
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
 import { useEffect, useCallback } from 'react';
 import {
   ModalBackdrop,
@@ -138,9 +137,4 @@ export const Modal = ({
     </ModalBackdrop>,
     modalRoot
   );
-};
-
-Modal.propTypes = {
-  image: PropTypes.string.isRequired,
-  onClose: PropTypes.func.isRequired,
 };

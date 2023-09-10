@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
-import image from '../../images/1079101.jpg';
+import image from '../../images/road.jpg';
 export const Hero = styled.section`
   padding-top: 200px;
   padding-bottom: 118px;
