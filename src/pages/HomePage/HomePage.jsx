@@ -10,6 +10,8 @@ import {
   BenefitsItem,
   BenefitTitle,
   BenefitText,
+  HeroContainer,
+  ReviewsContainer,
 } from './HomePage.styled';
 import { ReviewsSlider } from 'components/ReviewsSlider/ReviewsSlider';
 import reviews from '../../reviews.json';
@@ -19,7 +21,7 @@ const HomePage = () => {
   return (
     <>
       <Hero>
-        <Container>
+        <HeroContainer>
           <HeroTitle>DreamCar Rental</HeroTitle>
           <HeroDescription>
             Unforgettable adventures start here! Explore the open road,
@@ -28,7 +30,7 @@ const HomePage = () => {
           <LinkWrapper>
             <StyledLink to="/catalog">Explore Our Cars</StyledLink>
           </LinkWrapper>
-        </Container>
+        </HeroContainer>
       </Hero>
 
       <section>
@@ -67,10 +69,10 @@ const HomePage = () => {
         </Container>
       </section>
       <section>
-        <Container>
+        <ReviewsContainer>
           <ReviewsTitle>What our Customers Say?</ReviewsTitle>
           <ReviewsSlider reviews={reviews} />
-        </Container>
+        </ReviewsContainer>
       </section>
     </>
   );
