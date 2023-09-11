@@ -79,6 +79,4 @@ the "Learn more" button is clicked.
 
 Displays customer reviews.
 
-Thank you for using DreamCar Rental! We hope you enjoy your journey with us. If
-you have any questions or feedback, please don't hesitate to
-[contact us](mailto:contact@dreamcarrental.com).
+
