@@ -61,7 +61,7 @@ const CarCard = ({ car }) => {
 
         <CarImage src={car.img} alt={`${car.make} ${car.model}`} />
       </ImageWrapper>
-      <div>
+    
         <Wrapper>
           <CarName>
             {car.make}
@@ -80,7 +80,7 @@ const CarCard = ({ car }) => {
           <CarInfoItem>{car.id}</CarInfoItem>
           <CarInfoItem>{car.functionalities[0]}</CarInfoItem>
         </CarInfo>
-      </div>
+     
       <LearnMoreBtn type="button" onClick={openModal}>
         Learn more
       </LearnMoreBtn>

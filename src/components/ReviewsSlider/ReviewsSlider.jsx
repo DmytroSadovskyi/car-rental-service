@@ -67,11 +67,8 @@ export const ReviewsSlider = ({ reviews }) => {
             <li key={review.id}>
               <ReviewWrapper>
                 <Img src={review.avatar} alt={review.name} />
-
-                <div>
-                  <Name>{review.name}</Name>
-                  <Review>{review.review}</Review>
-                </div>
+                <Name>{review.name}</Name>
+                <Review>{review.review}</Review>
               </ReviewWrapper>
             </li>
           ))}

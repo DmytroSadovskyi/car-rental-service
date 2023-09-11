@@ -115,22 +115,21 @@ export const Modal = ({
             </AccessoriesInfoList>
           </AccessoriesInfo>
 
-          <div>
-            <Title>Rental Conditions:</Title>
-            <RentalInfo>
-              <RentalInfoItem>
-                Minimum age: <span>{number}</span>
-              </RentalInfoItem>
-              <RentalInfoItem>{splittedRentalConditions[1]}</RentalInfoItem>
-              <RentalInfoItem>{splittedRentalConditions[2]}</RentalInfoItem>
-              <RentalInfoItem>
-                Mileage: <span>{mileage.toLocaleString('en-EN')}</span>
-              </RentalInfoItem>
-              <RentalInfoItem>
-                Price: <span>{rentalPrice}</span>
-              </RentalInfoItem>
-            </RentalInfo>
-          </div>
+          <Title>Rental Conditions:</Title>
+          <RentalInfo>
+            <RentalInfoItem>
+              Minimum age: <span>{number}</span>
+            </RentalInfoItem>
+            <RentalInfoItem>{splittedRentalConditions[1]}</RentalInfoItem>
+            <RentalInfoItem>{splittedRentalConditions[2]}</RentalInfoItem>
+            <RentalInfoItem>
+              Mileage: <span>{mileage.toLocaleString('en-EN')}</span>
+            </RentalInfoItem>
+            <RentalInfoItem>
+              Price: <span>{rentalPrice}</span>
+            </RentalInfoItem>
+          </RentalInfo>
+
           <RentalLink href="tel:+380730000000">Rental car</RentalLink>
         </Wrapper>
       </ModalWrapper>
