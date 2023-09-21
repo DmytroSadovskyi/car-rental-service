@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from '@reduxjs/toolkit';
 import {
   persistReducer,
   persistStore,
@@ -10,7 +11,11 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import rootReducer from './rootReducer';
+import { favoritesReducer } from './favoriteSlice';
+
+const rootReducer = combineReducers({
+  favorites: favoritesReducer,
+});
 
 const persistConfig = {
   key: 'root',

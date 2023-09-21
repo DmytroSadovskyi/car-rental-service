@@ -146,7 +146,6 @@ export const BenefitText = styled.p`
 `;
 
 export const ReviewsContainer = styled.div`
-  width: 320px;
   padding: 15px 10px;
   margin: 0 auto;
 

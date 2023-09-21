@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { StyledLink, Header } from './SharedLayout.styled';
-import FallBackLoader from 'FallBackLoader/FallBackLoader';
+import FallBackLoader from '../FallBackLoader/FallBackLoader';
 
 const SharedLayout = () => {
   return (

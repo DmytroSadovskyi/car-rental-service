@@ -22,6 +22,7 @@ import { addToFavorites, removeFromFavorites } from 'redux/favoriteSlice';
 const CarCard = ({ car }) => {
   const dispatch = useDispatch();
   const favorites = useSelector(state => state.favorites);
+
   const addFavorite = () => {
     dispatch(addToFavorites(car));
   };
@@ -30,7 +31,7 @@ const CarCard = ({ car }) => {
     dispatch(removeFromFavorites(car));
   };
 
-  const isFavorite = favorites?.some(favoriteCar => favoriteCar?.id === car.id);
+  const isFavorite = favorites.some(favoriteCar => favoriteCar.id === car.id);
 
   const splittedAddress = car.address ? car.address.split(',') : [];
 
@@ -61,26 +62,26 @@ const CarCard = ({ car }) => {
 
         <CarImage src={car.img} alt={`${car.make} ${car.model}`} />
       </ImageWrapper>
-    
-        <Wrapper>
-          <CarName>
-            {car.make}
-            <Model>{car.model}</Model>, {car.year}
-          </CarName>
-          <span>{car.rentalPrice}</span>
-        </Wrapper>
-        <CarInfo>
-          <CarInfoItem>
-            <Country>{country}</Country>
-            <span>{city}</span>
-          </CarInfoItem>
-          <CarInfoItem>{car.rentalCompany}</CarInfoItem>
-          <CarInfoItem>{car.type}</CarInfoItem>
-          <CarInfoItem>{car.model}</CarInfoItem>
-          <CarInfoItem>{car.id}</CarInfoItem>
-          <CarInfoItem>{car.functionalities[0]}</CarInfoItem>
-        </CarInfo>
-     
+
+      <Wrapper>
+        <CarName>
+          {car.make}
+          <Model>{car.model}</Model>, {car.year}
+        </CarName>
+        <span>{car.rentalPrice}</span>
+      </Wrapper>
+      <CarInfo>
+        <CarInfoItem>
+          <Country>{country}</Country>
+          <span>{city}</span>
+        </CarInfoItem>
+        <CarInfoItem>{car.rentalCompany}</CarInfoItem>
+        <CarInfoItem>{car.type}</CarInfoItem>
+        <CarInfoItem>{car.model}</CarInfoItem>
+        <CarInfoItem>{car.id}</CarInfoItem>
+        <CarInfoItem>{car.functionalities[0]}</CarInfoItem>
+      </CarInfo>
+
       <LearnMoreBtn type="button" onClick={openModal}>
         Learn more
       </LearnMoreBtn>

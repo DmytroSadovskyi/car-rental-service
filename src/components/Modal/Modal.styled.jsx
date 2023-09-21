@@ -186,19 +186,11 @@ export const AccessoriesInfoItem = styled.li`
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
-  border-right: 1px solid rgba(18, 20, 23, 0.2);
-  padding-right: 3px;
-`;
+  padding-right: 4px;
 
-export const CarInfoSecondary = styled.ul`
-  color: rgba(18, 20, 23, 0.5);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.5;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
-  gap: 4px;
+  &:not(:last-child) {
+    border-right: 1px solid rgba(18, 20, 23, 0.1);
+  }
 `;
 
 export const RentalInfo = styled.ul`

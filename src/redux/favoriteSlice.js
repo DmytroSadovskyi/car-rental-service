@@ -8,11 +8,12 @@ const favoritesSlice = createSlice({
     addToFavorites: (state, action) => {
       state.push(action.payload);
     },
+    
     removeFromFavorites: (state, action) => {
-      return state.filter(car => car.id !== action.payload.id); // Видаляємо за id
+      return state.filter(car => car.id !== action.payload.id);
     },
   },
 });
 
 export const { addToFavorites, removeFromFavorites } = favoritesSlice.actions;
-export default favoritesSlice.reducer;
+export const favoritesReducer = favoritesSlice.reducer;
