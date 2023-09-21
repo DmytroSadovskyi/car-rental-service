@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const FilterContainer = styled.div`
   display: flex;
+  justify-content: center;
   @media screen and (max-width: 1051px) {
     flex-direction: column;
     align-items: center;
@@ -11,13 +12,14 @@ export const FilterContainer = styled.div`
   gap: 18px;
   align-items: flex-end;
   margin: 0 auto;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 `;
 
 export const SelectWrapper = styled.div`
   @media screen and (max-width: 1440px) {
     display: flex;
     align-items: center;
+    gap: 18px;
   }
 `;
 
@@ -40,9 +42,13 @@ export const Label = styled.label`
 export const InputsWrapper = styled.div``;
 
 export const MileageInputLeft = styled.input`
-  width: 160px;
+  @media screen and (min-width: 380px) {
+    width: 160px;
+    padding: 14px 93px 14px 24px;
+  }
+  width: 130px;
   height: 48px;
-  padding: 14px 93px 14px 24px;
+  padding: 14px 60px 14px 24px;
   border-radius: 14px 0px 0px 14px;
   border: none;
   background: #f7f7fb;
@@ -62,9 +68,13 @@ export const MileageInputLeft = styled.input`
 `;
 
 export const MileageInputRight = styled.input`
-  width: 160px;
+  @media screen and (min-width: 380px) {
+    width: 160px;
+    padding: 14px 80px 14px 24px;
+  }
+  width: 130px;
   height: 48px;
-  padding: 14px 115px 14px 24px;
+  padding: 14px 60px 14px 24px;
   border-radius: 0px 14px 14px 0px;
   border: none;
   border-left: 1px solid rgba(138, 138, 137, 0.2);
@@ -108,4 +118,11 @@ export const FilterButton = styled.button`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.43;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: #0b44cd;
+  }
 `;

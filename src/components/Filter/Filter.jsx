@@ -22,6 +22,7 @@ const Filter = ({
   handleReset,
   makes,
   onApplyFilters,
+  children,
 }) => {
   const [makeMenuIsOpen, setMakeMenuIsOpen] = useState(false);
   const [priceMenuIsOpen, setPriceMenuIsOpen] = useState(false);
@@ -207,6 +208,7 @@ const Filter = ({
           Reset
         </FilterButton>
       </ButtonsWrapper>
+      {children}
     </FilterContainer>
   );
 };

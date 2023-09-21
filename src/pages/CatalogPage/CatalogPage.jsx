@@ -2,10 +2,12 @@ import CarCard from 'components/CarCard/CarCard';
 import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import fetchCars from 'services/carsApi';
-import { CarsList, LoadMoreBtn } from './CatalogPage.styled';
+import { CarsList, LoadMoreBtn, SortButton } from './CatalogPage.styled';
 import { Container } from 'components/SharedLayout/SharedLayout.styled';
 import FallBackLoader from '../../components/FallBackLoader/FallBackLoader';
 import Filter from 'components/Filter/Filter';
+import { ReactComponent as DescendingIcon } from '../../images/icons/sort-amount-desc.svg';
+import { ReactComponent as AscendingIcon } from '../../images/icons/sort-amount-asc.svg';
 
 const CatalogPage = () => {
   const [cars, setCars] = useState([]);
@@ -142,11 +144,15 @@ const CatalogPage = () => {
           onApplyFilters={() => {
             setApplyFiltersFlag(true);
           }}
-        />
-
-        <button type="button" onClick={toggleSortOrder}>
-          {sortOrder === 'ascending' ? 'Sort Descending' : 'Sort Ascending'}
-        </button>
+        >
+          <SortButton
+            type="button"
+            aria-label="sorting-button"
+            onClick={toggleSortOrder}
+          >
+            {sortOrder === 'ascending' ? <DescendingIcon /> : <AscendingIcon />}
+          </SortButton>
+        </Filter>
 
         <CarsList>
           {currentCars.map(car => (

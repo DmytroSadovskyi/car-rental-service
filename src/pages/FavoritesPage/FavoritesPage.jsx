@@ -2,135 +2,135 @@ import CarCard from 'components/CarCard/CarCard';
 import { useSelector } from 'react-redux';
 import { CarsList } from 'pages/CatalogPage/CatalogPage.styled';
 import { Container } from 'components/SharedLayout/SharedLayout.styled';
+import { useState, useCallback, useEffect } from 'react';
+import Filter from 'components/Filter/Filter';
 import { Text } from './FavoritesPage.styled';
-import { useState } from 'react';
+import { SortButton } from 'pages/CatalogPage/CatalogPage.styled';
+import { ReactComponent as DescendingIcon } from '../../images/icons/sort-amount-desc.svg';
+import { ReactComponent as AscendingIcon } from '../../images/icons/sort-amount-asc.svg';
 
 const FavoritesPage = () => {
   const favoriteCars = useSelector(state => state.favorites);
-  const [makeFilter, setMakeFilter] = useState('All');
-  const [priceFilter, setPriceFilter] = useState({ min: 0, max: 5000 });
-  const [mileageFilter, setMileageFilter] = useState({ min: 0, max: 100000 });
 
-  const filterCars = car => {
-    if (makeFilter !== 'All' && car.make !== makeFilter) {
-      return false;
+  const [makes, setMakes] = useState([]);
+
+  useEffect(() => {
+    const uniqueMakes = [...new Set(favoriteCars.map(car => car.make))];
+    setMakes(uniqueMakes);
+    setFilteredCars(favoriteCars);
+  }, [favoriteCars]);
+
+  const [filteredCars, setFilteredCars] = useState(favoriteCars);
+  const [applyFiltersFlag, setApplyFiltersFlag] = useState(false);
+
+  const [makeFilter, setMakeFilter] = useState('');
+  const [priceFilter, setPriceFilter] = useState('');
+  const [mileageFilter, setMileageFilter] = useState({
+    min: '',
+    max: '',
+  });
+
+  const [sortOrder, setSortOrder] = useState('ascending');
+
+  const filterCars = useCallback(
+    car => {
+      if (makeFilter !== '' && car.make !== makeFilter) {
+        return false;
+      }
+
+      const rentalPriceNumeric = parseInt(
+        car.rentalPrice.replace(/\D/g, ''),
+        10
+      );
+
+      if (
+        priceFilter !== '' &&
+        rentalPriceNumeric < parseInt(priceFilter, 10)
+      ) {
+        return false;
+      }
+
+      if (
+        (mileageFilter.min !== '' && car.mileage < mileageFilter.min) ||
+        (mileageFilter.max !== '' && car.mileage > mileageFilter.max)
+      ) {
+        return false;
+      }
+
+      return true;
+    },
+    [makeFilter, priceFilter, mileageFilter]
+  );
+
+  useEffect(() => {
+    if (applyFiltersFlag) {
+      const filteredCars = favoriteCars.filter(filterCars);
+      setFilteredCars(filteredCars);
+      setApplyFiltersFlag(false);
     }
+  }, [applyFiltersFlag, favoriteCars, filterCars]);
 
-    const rentalPrice = parseInt(car.rentalPrice.replace(/\D/g, ''));
-    if (rentalPrice < priceFilter.min || rentalPrice > priceFilter.max) {
-      return false;
+  const sortedCars = [...filteredCars].sort((a, b) => {
+    if (sortOrder === 'ascending') {
+      return (
+        parseInt(a.rentalPrice.replace(/\D/g, ''), 10) -
+        parseInt(b.rentalPrice.replace(/\D/g, ''), 10)
+      );
+    } else {
+      return (
+        parseInt(b.rentalPrice.replace(/\D/g, ''), 10) -
+        parseInt(a.rentalPrice.replace(/\D/g, ''), 10)
+      );
     }
+  });
 
-    if (car.mileage < mileageFilter.min || car.mileage > mileageFilter.max) {
-      return false;
-    }
-
-    return true;
+  const handleReset = () => {
+    setMakeFilter('');
+    setPriceFilter(0);
+    setMileageFilter({ min: '', max: '' });
+    setApplyFiltersFlag(true);
+    setFilteredCars(favoriteCars);
   };
 
-  const filteredCars = favoriteCars.filter(filterCars);
+  const toggleSortOrder = () => {
+    setSortOrder(prevSortOrder =>
+      prevSortOrder === 'ascending' ? 'descending' : 'ascending'
+    );
+  };
 
   return (
     <section>
       <Container>
-        <div>
-          <label>Make:</label>
-          <select
-            value={makeFilter}
-            onChange={e => setMakeFilter(e.target.value)}
+        <Filter
+          makeFilter={makeFilter}
+          priceFilter={priceFilter}
+          mileageFilter={mileageFilter}
+          setMakeFilter={setMakeFilter}
+          setPriceFilter={setPriceFilter}
+          setMileageFilter={setMileageFilter}
+          makes={makes}
+          handleReset={handleReset}
+          onApplyFilters={() => {
+            setApplyFiltersFlag(true);
+          }}
+        >
+          <SortButton
+            type="button"
+            aria-label="sorting-button"
+            onClick={toggleSortOrder}
           >
-            <option value="All">All</option>
-            <option value="Toyota">Toyota</option>
-            <option value="Tesla">Tesla</option>
-            <option value="HUMMER">HUMMER</option>
-            <option value="Honda">Honda</option>
-            <option value="Subaru">Subaru</option>
-            <option value="Lincoln">Lincoln</option>
-            <option value="Mercedes-Benz">Mercedes-Benz</option>
-            <option value="MINI">MINI</option>
-            <option value="Kia">Kia</option>
-            <option value="GMC">GMC</option>
-            <option value="Pontiac">Pontiac</option>
-            <option value="Range Rover">Range Rover</option>
-            <option value="Volvo">Volvo</option>
-            <option value="Nissan">Nissan</option>
-            <option value="Mitsubishi">Mitsubishi</option>
-            <option value="Buick">Buick</option>
-            <option value="Chevrolet">Chevrolet</option>
-            <option value="Audi">Audi</option>
-            <option value="Aston Martin">Aston Martin</option>
-            <option value="Bentley">Bentley</option>
-            <option value="Chrysler">Chrysler</option>
-            <option value="Hyundai">Hyundai</option>
-            <option value="Ford">Ford</option>
-            <option value="Lamborghini">Lamborghini</option>
-            <option value="BMW">BMW</option>
-          </select>
-        </div>
+            {sortOrder === 'ascending' ? <DescendingIcon /> : <AscendingIcon />}
+          </SortButton>
+        </Filter>
 
-        <div>
-          <label>Rental Price:</label>
-          <input
-            type="number"
-            min="0"
-            max="5000"
-            value={priceFilter.min}
-            onChange={e =>
-              setPriceFilter({
-                ...priceFilter,
-                min: parseInt(e.target.value),
-              })
-            }
-          />
-          <input
-            type="number"
-            min="0"
-            max="5000"
-            value={priceFilter.max}
-            onChange={e =>
-              setPriceFilter({
-                ...priceFilter,
-                max: parseInt(e.target.value),
-              })
-            }
-          />
-        </div>
-
-        <div>
-          <label>Mileage:</label>
-          <input
-            type="number"
-            min="0"
-            max="100000"
-            value={mileageFilter.min}
-            onChange={e =>
-              setMileageFilter({
-                ...mileageFilter,
-                min: parseInt(e.target.value),
-              })
-            }
-          />
-          <input
-            type="number"
-            min="0"
-            max="100000"
-            value={mileageFilter.max}
-            onChange={e =>
-              setMileageFilter({
-                ...mileageFilter,
-                max: parseInt(e.target.value),
-              })
-            }
-          />
-        </div>
-        {filteredCars.length > 0 ? (
+        {sortedCars.length > 0 ? (
           <CarsList>
-            {filteredCars.map(car => (
+            {sortedCars.map(car => (
               <li key={car.id}>{<CarCard car={car} />}</li>
             ))}
           </CarsList>
         ) : (
-          <Text>There are no favorite cars yet</Text>
+          <Text>There is no favorite cars yet</Text>
         )}
       </Container>
     </section>
