@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/car-rental-service/static/css/main.23085495.css",
-    "main.js": "/car-rental-service/static/js/main.eb4555ef.js",
+    "main.js": "/car-rental-service/static/js/main.597fb2de.js",
     "static/css/683.973fb7e9.chunk.css": "/car-rental-service/static/css/683.973fb7e9.chunk.css",
     "static/js/683.15ccf3bd.chunk.js": "/car-rental-service/static/js/683.15ccf3bd.chunk.js",
-    "static/js/770.90644f24.chunk.js": "/car-rental-service/static/js/770.90644f24.chunk.js",
+    "static/js/770.2c0860eb.chunk.js": "/car-rental-service/static/js/770.2c0860eb.chunk.js",
     "static/js/413.99285de6.chunk.js": "/car-rental-service/static/js/413.99285de6.chunk.js",
     "static/js/439.632cbb3b.chunk.js": "/car-rental-service/static/js/439.632cbb3b.chunk.js",
     "static/js/243.ad3685b3.chunk.js": "/car-rental-service/static/js/243.ad3685b3.chunk.js",
@@ -26,10 +26,10 @@
     "static/media/down-arrow-left.svg": "/car-rental-service/static/media/down-arrow-left.d4ae80c5786e333a8c15dbf3d4787026.svg",
     "static/media/close-icon.svg": "/car-rental-service/static/media/close-icon.e17b6bec4e4b49c8328526e66114b8f1.svg",
     "main.23085495.css.map": "/car-rental-service/static/css/main.23085495.css.map",
-    "main.eb4555ef.js.map": "/car-rental-service/static/js/main.eb4555ef.js.map",
+    "main.597fb2de.js.map": "/car-rental-service/static/js/main.597fb2de.js.map",
     "683.973fb7e9.chunk.css.map": "/car-rental-service/static/css/683.973fb7e9.chunk.css.map",
     "683.15ccf3bd.chunk.js.map": "/car-rental-service/static/js/683.15ccf3bd.chunk.js.map",
-    "770.90644f24.chunk.js.map": "/car-rental-service/static/js/770.90644f24.chunk.js.map",
+    "770.2c0860eb.chunk.js.map": "/car-rental-service/static/js/770.2c0860eb.chunk.js.map",
     "413.99285de6.chunk.js.map": "/car-rental-service/static/js/413.99285de6.chunk.js.map",
     "439.632cbb3b.chunk.js.map": "/car-rental-service/static/js/439.632cbb3b.chunk.js.map",
     "243.ad3685b3.chunk.js.map": "/car-rental-service/static/js/243.ad3685b3.chunk.js.map",
@@ -38,6 +38,6 @@
   },
   "entrypoints": [
     "static/css/main.23085495.css",
-    "static/js/main.eb4555ef.js"
+    "static/js/main.597fb2de.js"
   ]
 }
