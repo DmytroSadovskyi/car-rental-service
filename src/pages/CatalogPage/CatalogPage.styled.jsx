@@ -36,8 +36,9 @@ export const SortButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: baseline;
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
+  padding: 10px;
   border: none;
   background-color: transparent;
 
