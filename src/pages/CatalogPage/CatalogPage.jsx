@@ -76,7 +76,7 @@ const CatalogPage = () => {
 
       if (
         priceFilter !== '' &&
-        rentalPriceNumeric >= parseInt(priceFilter, 10)
+        rentalPriceNumeric > parseInt(priceFilter, 10)
       ) {
         return false;
       }
