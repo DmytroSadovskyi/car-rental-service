@@ -8,6 +8,7 @@ import { Text } from './FavoritesPage.styled';
 import { SortButton } from 'pages/CatalogPage/CatalogPage.styled';
 import { ReactComponent as DescendingIcon } from '../../images/icons/sort-amount-desc.svg';
 import { ReactComponent as AscendingIcon } from '../../images/icons/sort-amount-asc.svg';
+import toast, { Toaster } from 'react-hot-toast';
 
 const FavoritesPage = () => {
   const favoriteCars = useSelector(state => state.favorites);
@@ -22,6 +23,7 @@ const FavoritesPage = () => {
 
   const [filteredCars, setFilteredCars] = useState(favoriteCars);
   const [applyFiltersFlag, setApplyFiltersFlag] = useState(false);
+  const [showNoCarsMessage, setShowNoCarsMessage] = useState(false);
 
   const [makeFilter, setMakeFilter] = useState('');
   const [priceFilter, setPriceFilter] = useState('');
@@ -45,7 +47,7 @@ const FavoritesPage = () => {
 
       if (
         priceFilter !== '' &&
-        rentalPriceNumeric < parseInt(priceFilter, 10)
+        rentalPriceNumeric >= parseInt(priceFilter, 10)
       ) {
         return false;
       }
@@ -66,6 +68,12 @@ const FavoritesPage = () => {
     if (applyFiltersFlag) {
       const filteredCars = favoriteCars.filter(filterCars);
       setFilteredCars(filteredCars);
+      if (filteredCars.length === 0) {
+        setShowNoCarsMessage(true);
+        toast.error('No cars match your criteria. Please adjust your filters.');
+      } else {
+        setShowNoCarsMessage(false);
+      }
       setApplyFiltersFlag(false);
     }
   }, [applyFiltersFlag, favoriteCars, filterCars]);
@@ -86,10 +94,11 @@ const FavoritesPage = () => {
 
   const handleReset = () => {
     setMakeFilter('');
-    setPriceFilter(0);
+    setPriceFilter('');
     setMileageFilter({ min: '', max: '' });
     setApplyFiltersFlag(true);
     setFilteredCars(favoriteCars);
+    setShowNoCarsMessage(false);
   };
 
   const toggleSortOrder = () => {
@@ -101,6 +110,7 @@ const FavoritesPage = () => {
   return (
     <section>
       <Container>
+        <Toaster />
         <Filter
           makeFilter={makeFilter}
           priceFilter={priceFilter}

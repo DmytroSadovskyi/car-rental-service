@@ -8,6 +8,9 @@ import FallBackLoader from '../../components/FallBackLoader/FallBackLoader';
 import Filter from 'components/Filter/Filter';
 import { ReactComponent as DescendingIcon } from '../../images/icons/sort-amount-desc.svg';
 import { ReactComponent as AscendingIcon } from '../../images/icons/sort-amount-asc.svg';
+import { Text } from 'pages/FavoritesPage/FavoritesPage.styled';
+
+import toast, { Toaster } from 'react-hot-toast';
 
 const CatalogPage = () => {
   const [cars, setCars] = useState([]);
@@ -21,6 +24,8 @@ const CatalogPage = () => {
 
   const [makeFilter, setMakeFilter] = useState('');
   const [priceFilter, setPriceFilter] = useState('');
+
+  const [showNoCarsMessage, setShowNoCarsMessage] = useState(false);
 
   const [mileageFilter, setMileageFilter] = useState({
     min: '',
@@ -71,7 +76,7 @@ const CatalogPage = () => {
 
       if (
         priceFilter !== '' &&
-        rentalPriceNumeric < parseInt(priceFilter, 10)
+        rentalPriceNumeric >= parseInt(priceFilter, 10)
       ) {
         return false;
       }
@@ -92,6 +97,12 @@ const CatalogPage = () => {
     if (applyFiltersFlag) {
       const filteredCars = cars.filter(filterCars);
       setFilteredCars(filteredCars);
+      if (filteredCars.length === 0) {
+        setShowNoCarsMessage(true);
+        toast.error('No cars match your criteria. Please adjust your filters.');
+      } else {
+        setShowNoCarsMessage(false);
+      }
 
       setApplyFiltersFlag(false);
     }
@@ -117,9 +128,10 @@ const CatalogPage = () => {
 
   const handleReset = () => {
     setMakeFilter('');
-    setPriceFilter(0);
+    setPriceFilter('');
     setMileageFilter({ min: '', max: '' });
     setApplyFiltersFlag(true);
+    setShowNoCarsMessage(false);
   };
 
   const toggleSortOrder = () => {
@@ -131,6 +143,7 @@ const CatalogPage = () => {
   return (
     <section>
       {isLoading && <FallBackLoader />}
+      <Toaster />
       <Container>
         <Filter
           makeFilter={makeFilter}
@@ -153,7 +166,13 @@ const CatalogPage = () => {
             {sortOrder === 'ascending' ? <DescendingIcon /> : <AscendingIcon />}
           </SortButton>
         </Filter>
-
+        {currentCars.length === 0 && showNoCarsMessage && (
+          <>
+            <Text>
+              No cars match your criteria. Please adjust your filters.
+            </Text>
+          </>
+        )}
         <CarsList>
           {currentCars.map(car => (
             <li key={car.id}>{<CarCard car={car} />}</li>

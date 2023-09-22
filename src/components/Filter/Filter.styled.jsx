@@ -16,11 +16,9 @@ export const FilterContainer = styled.div`
 `;
 
 export const SelectWrapper = styled.div`
-  @media screen and (max-width: 1440px) {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-  }
+  display: flex;
+  align-items: center;
+  gap: 18px;
 `;
 
 export const MileageInputsWrapper = styled.div`
