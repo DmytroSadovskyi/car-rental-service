@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const FilterContainer = styled.div`
   display: flex;
   justify-content: center;
-  @media screen and (max-width: 1051px) {
+  @media screen and (max-width: 1110px) {
     flex-direction: column;
     align-items: center;
   }
