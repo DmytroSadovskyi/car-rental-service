@@ -133,7 +133,7 @@ const FavoritesPage = () => {
           </SortButton>
         </Filter>
 
-        {sortedCars.length > 0 ? (
+        {sortedCars.length > 0 && !showNoCarsMessage ? (
           <CarsList>
             {sortedCars.map(car => (
               <li key={car.id}>{<CarCard car={car} />}</li>
