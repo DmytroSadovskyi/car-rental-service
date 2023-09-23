@@ -3,15 +3,17 @@ import styled from 'styled-components';
 export const FilterContainer = styled.div`
   display: flex;
   justify-content: center;
+
   @media screen and (max-width: 1110px) {
     flex-direction: column;
     align-items: center;
   }
-  max-width: 1600px;
+  width: 100%;
 
   gap: 18px;
   align-items: flex-end;
   margin: 0 auto;
+  margin-top: 40px;
   margin-bottom: 50px;
 `;
 

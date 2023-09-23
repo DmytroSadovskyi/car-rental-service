@@ -15,6 +15,7 @@ export const LoadMoreBtn = styled.button`
   height: 24px;
   padding: 0;
   margin: 0 auto;
+  margin-bottom: 40px;
   color: #3470ff;
   background-color: transparent;
   border: none;

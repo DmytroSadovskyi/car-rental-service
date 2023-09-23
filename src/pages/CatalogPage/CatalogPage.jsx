@@ -3,7 +3,7 @@ import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import fetchCars from 'services/carsApi';
 import { CarsList, LoadMoreBtn, SortButton } from './CatalogPage.styled';
-import { Container } from 'components/SharedLayout/SharedLayout.styled';
+import PageContainer from 'components/PageContainer/PageContainer';
 import FallBackLoader from '../../components/FallBackLoader/FallBackLoader';
 import Filter from 'components/Filter/Filter';
 import { ReactComponent as DescendingIcon } from '../../images/icons/sort-amount-desc.svg';
@@ -144,28 +144,29 @@ const CatalogPage = () => {
     <section>
       {isLoading && <FallBackLoader />}
       <Toaster />
-      <Container>
-        <Filter
-          makeFilter={makeFilter}
-          priceFilter={priceFilter}
-          mileageFilter={mileageFilter}
-          setMakeFilter={setMakeFilter}
-          setPriceFilter={setPriceFilter}
-          setMileageFilter={setMileageFilter}
-          makes={makes}
-          handleReset={handleReset}
-          onApplyFilters={() => {
-            setApplyFiltersFlag(true);
-          }}
+
+      <Filter
+        makeFilter={makeFilter}
+        priceFilter={priceFilter}
+        mileageFilter={mileageFilter}
+        setMakeFilter={setMakeFilter}
+        setPriceFilter={setPriceFilter}
+        setMileageFilter={setMileageFilter}
+        makes={makes}
+        handleReset={handleReset}
+        onApplyFilters={() => {
+          setApplyFiltersFlag(true);
+        }}
+      >
+        <SortButton
+          type="button"
+          aria-label="sorting-button"
+          onClick={toggleSortOrder}
         >
-          <SortButton
-            type="button"
-            aria-label="sorting-button"
-            onClick={toggleSortOrder}
-          >
-            {sortOrder === 'ascending' ? <DescendingIcon /> : <AscendingIcon />}
-          </SortButton>
-        </Filter>
+          {sortOrder === 'ascending' ? <DescendingIcon /> : <AscendingIcon />}
+        </SortButton>
+      </Filter>
+      <PageContainer>
         {currentCars.length === 0 && showNoCarsMessage && (
           <>
             <Text>
@@ -183,7 +184,7 @@ const CatalogPage = () => {
             Load more
           </LoadMoreBtn>
         )}
-      </Container>
+      </PageContainer>
     </section>
   );
 };

@@ -1,7 +1,6 @@
 import CarCard from 'components/CarCard/CarCard';
 import { useSelector } from 'react-redux';
 import { CarsList } from 'pages/CatalogPage/CatalogPage.styled';
-import { Container } from 'components/SharedLayout/SharedLayout.styled';
 import { useState, useCallback, useEffect } from 'react';
 import Filter from 'components/Filter/Filter';
 import { Text } from './FavoritesPage.styled';
@@ -9,6 +8,7 @@ import { SortButton } from 'pages/CatalogPage/CatalogPage.styled';
 import { ReactComponent as DescendingIcon } from '../../images/icons/sort-amount-desc.svg';
 import { ReactComponent as AscendingIcon } from '../../images/icons/sort-amount-asc.svg';
 import toast, { Toaster } from 'react-hot-toast';
+import PageContainer from 'components/PageContainer/PageContainer';
 
 const FavoritesPage = () => {
   const favoriteCars = useSelector(state => state.favorites);
@@ -109,30 +109,29 @@ const FavoritesPage = () => {
 
   return (
     <section>
-      <Container>
-        <Toaster />
-        <Filter
-          makeFilter={makeFilter}
-          priceFilter={priceFilter}
-          mileageFilter={mileageFilter}
-          setMakeFilter={setMakeFilter}
-          setPriceFilter={setPriceFilter}
-          setMileageFilter={setMileageFilter}
-          makes={makes}
-          handleReset={handleReset}
-          onApplyFilters={() => {
-            setApplyFiltersFlag(true);
-          }}
+      <Toaster />
+      <Filter
+        makeFilter={makeFilter}
+        priceFilter={priceFilter}
+        mileageFilter={mileageFilter}
+        setMakeFilter={setMakeFilter}
+        setPriceFilter={setPriceFilter}
+        setMileageFilter={setMileageFilter}
+        makes={makes}
+        handleReset={handleReset}
+        onApplyFilters={() => {
+          setApplyFiltersFlag(true);
+        }}
+      >
+        <SortButton
+          type="button"
+          aria-label="sorting-button"
+          onClick={toggleSortOrder}
         >
-          <SortButton
-            type="button"
-            aria-label="sorting-button"
-            onClick={toggleSortOrder}
-          >
-            {sortOrder === 'ascending' ? <DescendingIcon /> : <AscendingIcon />}
-          </SortButton>
-        </Filter>
-
+          {sortOrder === 'ascending' ? <DescendingIcon /> : <AscendingIcon />}
+        </SortButton>
+      </Filter>
+      <PageContainer>
         {sortedCars.length > 0 && !showNoCarsMessage ? (
           <CarsList>
             {sortedCars.map(car => (
@@ -142,7 +141,7 @@ const FavoritesPage = () => {
         ) : (
           <Text>There is no favorite cars yet</Text>
         )}
-      </Container>
+      </PageContainer>
     </section>
   );
 };
