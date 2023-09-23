@@ -35,6 +35,18 @@ const Filter = ({
     setPriceFilter(selectedOption ? selectedOption.value : '');
   };
 
+  const handleMakeKeyDown = event => {
+    if (event.key === 'Enter') {
+      setMakeMenuIsOpen(!makeMenuIsOpen);
+    }
+  };
+
+  const handlePriceKeyDown = event => {
+    if (event.key === 'Enter') {
+      setPriceMenuIsOpen(!priceMenuIsOpen);
+    }
+  };
+
   const customStyles = {
     control: provided => ({
       ...provided,
@@ -147,6 +159,7 @@ const Filter = ({
             onMenuOpen={() => setMakeMenuIsOpen(true)}
             onMenuClose={() => setMakeMenuIsOpen(false)}
             placeholder="Enter the text"
+            onKeyDown={handleMakeKeyDown}
           />
         </MileageInputsWrapper>
         <MileageInputsWrapper>
@@ -163,6 +176,7 @@ const Filter = ({
             onMenuOpen={() => setPriceMenuIsOpen(true)}
             onMenuClose={() => setPriceMenuIsOpen(false)}
             placeholder="To $"
+            onKeyDown={handlePriceKeyDown}
           />
         </MileageInputsWrapper>
       </SelectWrapper>
