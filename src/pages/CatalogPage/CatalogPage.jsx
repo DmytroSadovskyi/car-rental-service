@@ -102,14 +102,14 @@ const CatalogPage = () => {
       setFilteredCars(filteredCars);
       if (filteredCars.length === 0) {
         setShowNoCarsMessage(true);
-        toast.error('No cars match your criteria. Please adjust your filters.');
+        toast.error(t('errorMessage'));
       } else {
         setShowNoCarsMessage(false);
       }
 
       setApplyFiltersFlag(false);
     }
-  }, [applyFiltersFlag, cars, filterCars]);
+  }, [applyFiltersFlag, cars, filterCars, t]);
 
   const sortedCars = [...filteredCars].sort((a, b) => {
     if (sortOrder === 'ascending') {
@@ -172,9 +172,7 @@ const CatalogPage = () => {
       <PageContainer>
         {currentCars.length === 0 && showNoCarsMessage && (
           <>
-            <Text>
-              No cars match your criteria. Please adjust your filters.
-            </Text>
+            <Text>{t('errorMessage')}</Text>
           </>
         )}
         <CarsList>

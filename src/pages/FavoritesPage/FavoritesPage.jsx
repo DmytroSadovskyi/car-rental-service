@@ -9,8 +9,10 @@ import { ReactComponent as DescendingIcon } from '../../images/icons/sort-amount
 import { ReactComponent as AscendingIcon } from '../../images/icons/sort-amount-asc.svg';
 import toast, { Toaster } from 'react-hot-toast';
 import PageContainer from 'components/PageContainer/PageContainer';
+import { useTranslation } from 'react-i18next';
 
 const FavoritesPage = () => {
+  const { t } = useTranslation();
   const favoriteCars = useSelector(state => state.favorites);
 
   const [makes, setMakes] = useState([]);
@@ -139,7 +141,7 @@ const FavoritesPage = () => {
             ))}
           </CarsList>
         ) : (
-          <Text>There is no favorite cars yet</Text>
+          <Text>{t('emptyListText')}</Text>
         )}
       </PageContainer>
     </section>

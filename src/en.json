@@ -43,6 +43,8 @@
   "mileage": "Mileage",
   "minimumAge": "Minimum age",
   "rentalButton": "Rental car",
+  "emptyListText": "There is no favorite cars yet",
+  "errorMessage": "No cars match your criteria. Please adjust your filters.",
   "reviews": {
     "1": {
       "review": "Very good service! I love it!"
