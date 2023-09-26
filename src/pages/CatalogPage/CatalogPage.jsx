@@ -11,8 +11,11 @@ import { ReactComponent as AscendingIcon } from '../../images/icons/sort-amount-
 import { Text } from 'pages/FavoritesPage/FavoritesPage.styled';
 
 import toast, { Toaster } from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 
 const CatalogPage = () => {
+  const { t } = useTranslation();
+
   const [cars, setCars] = useState([]);
   const [makes, setMakes] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -181,7 +184,7 @@ const CatalogPage = () => {
         </CarsList>
         {filteredCars.length > indexOfLastCar && (
           <LoadMoreBtn type="button" onClick={handleLoadMore}>
-            Load more
+            {t('loadMore')}
           </LoadMoreBtn>
         )}
       </PageContainer>

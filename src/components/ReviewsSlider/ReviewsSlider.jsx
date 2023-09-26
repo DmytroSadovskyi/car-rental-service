@@ -12,6 +12,7 @@ import {
 } from './ReviewsSlider.styled';
 import { useEffect, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
+import { useTranslation } from 'react-i18next';
 
 export const ReviewsSlider = ({ reviews }) => {
   const [slide, setSlide] = useState(window.innerWidth >= 1440 ? 2 : 1);
@@ -59,6 +60,8 @@ export const ReviewsSlider = ({ reviews }) => {
     currentSlide: slide,
   };
 
+  const { t } = useTranslation();
+
   return (
     <ReviewsWrapper>
       <ul>
@@ -68,7 +71,7 @@ export const ReviewsSlider = ({ reviews }) => {
               <ReviewWrapper>
                 <Img src={review.avatar} alt={review.name} />
                 <Name>{review.name}</Name>
-                <Review>{review.review}</Review>
+                <Review>{t(`reviews.${review.id}.review`)}</Review>
               </ReviewWrapper>
             </li>
           ))}

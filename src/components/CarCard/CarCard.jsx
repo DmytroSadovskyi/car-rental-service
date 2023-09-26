@@ -18,8 +18,10 @@ import { useState } from 'react';
 import { Modal } from 'components/Modal/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorites, removeFromFavorites } from 'redux/favoriteSlice';
+import { useTranslation } from 'react-i18next';
 
 const CarCard = ({ car }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const favorites = useSelector(state => state.favorites);
 
@@ -32,11 +34,6 @@ const CarCard = ({ car }) => {
   };
 
   const isFavorite = favorites.some(favoriteCar => favoriteCar.id === car.id);
-
-  const splittedAddress = car.address ? car.address.split(',') : [];
-
-  const country = splittedAddress.length > 1 ? splittedAddress[1] : '';
-  const city = splittedAddress.length > 2 ? splittedAddress[2] : '';
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -72,8 +69,8 @@ const CarCard = ({ car }) => {
       </Wrapper>
       <CarInfo>
         <CarInfoItem>
-          <Country>{country}</Country>
-          <span>{city}</span>
+          <Country>{t(`cars.${car.id}.city`)}</Country>
+          <span>{t('country')}</span>
         </CarInfoItem>
         <CarInfoItem>{car.rentalCompany}</CarInfoItem>
         <CarInfoItem>{car.type}</CarInfoItem>
@@ -83,7 +80,7 @@ const CarCard = ({ car }) => {
       </CarInfo>
 
       <LearnMoreBtn type="button" onClick={openModal}>
-        Learn more
+        {t('learnMore')}
       </LearnMoreBtn>
       {isModalOpen && (
         <Modal

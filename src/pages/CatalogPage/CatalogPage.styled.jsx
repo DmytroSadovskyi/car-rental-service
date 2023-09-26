@@ -11,7 +11,7 @@ export const CarsList = styled.ul`
 
 export const LoadMoreBtn = styled.button`
   display: block;
-  width: 79px;
+  min-width: 79px;
   height: 24px;
   padding: 0;
   margin: 0 auto;

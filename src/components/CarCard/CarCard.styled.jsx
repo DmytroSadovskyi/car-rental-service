@@ -73,6 +73,10 @@ export const CarInfoItem = styled.li`
   &:not(:last-child) {
     border-right: 1px solid rgba(18, 20, 23, 0.1);
   }
+
+  & > span:last-child {
+    padding-left: 4px;
+  }
 `;
 
 export const Country = styled.span`
@@ -86,7 +90,7 @@ export const LearnMoreBtn = styled.button`
   justify-content: center;
   width: 274px;
   height: 44px;
-  padding: 12px 99px;
+  padding: 12px 75px;
   font-family: inherit;
   font-size: 14px;
   font-style: normal;

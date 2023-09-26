@@ -23,7 +23,7 @@ import {
 } from './Modal.styled';
 
 import { CarInfoItem, Country } from 'components/CarCard/CarCard.styled';
-
+import { useTranslation } from 'react-i18next';
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({
@@ -42,11 +42,8 @@ export const Modal = ({
   engineSize,
   mileage,
   rentalConditions,
-  description,
 }) => {
-  const splittedAddress = address ? address.split(',') : [];
-  const country = splittedAddress.length > 1 ? splittedAddress[1] : '';
-  const city = splittedAddress.length > 2 ? splittedAddress[2] : '';
+  const { t } = useTranslation();
 
   const splittedRentalConditions = rentalConditions.split('\n', 3);
   const firstElement = splittedRentalConditions[0];
@@ -90,21 +87,27 @@ export const Modal = ({
             </ModalCarName>
             <ModalCarInfo>
               <CarInfoItem>
-                <Country>{country}</Country>
-                <span>{city}</span>
+                <Country>{t(`cars.${id}.city`)}</Country>
+                <span>{t('country')}</span>
               </CarInfoItem>
               <CarInfoItem>id: {id}</CarInfoItem>
-              <CarInfoItem>Year: {year}</CarInfoItem>
-              <CarInfoItem>Type: {type}</CarInfoItem>
-              <CarInfoItem>Fuel Consumption: {fuelConsumption}</CarInfoItem>
-              <CarInfoItem>Engine Size: {engineSize}</CarInfoItem>
+              <CarInfoItem>
+                {t('year')}: {year}
+              </CarInfoItem>
+              <CarInfoItem>
+                {t('type')}: {type}
+              </CarInfoItem>
+              <CarInfoItem>
+                {t('fuelConsumption')}: {fuelConsumption}
+              </CarInfoItem>
+              <CarInfoItem>
+                {t('engineSize')}: {engineSize}
+              </CarInfoItem>
             </ModalCarInfo>
           </CarInfoWrapper>
-          <CarDescription>{description}</CarDescription>
+          <CarDescription>{t(`cars.${id}.description`)}</CarDescription>
           <AccessoriesInfo>
-            <AccessoriesInfoTitle>
-              Accessories and functionalities:
-            </AccessoriesInfoTitle>
+            <AccessoriesInfoTitle>{t('functionalities')}:</AccessoriesInfoTitle>
             <AccessoriesInfoList>
               <AccessoriesInfoItem>{accessories[0]}</AccessoriesInfoItem>
               <AccessoriesInfoItem>{accessories[1]}</AccessoriesInfoItem>
@@ -115,22 +118,24 @@ export const Modal = ({
             </AccessoriesInfoList>
           </AccessoriesInfo>
 
-          <Title>Rental Conditions:</Title>
+          <Title>{t('rentalConditions')}:</Title>
           <RentalInfo>
             <RentalInfoItem>
-              Minimum age: <span>{number}</span>
+              {t('minimumAge')}: <span>{number}</span>
             </RentalInfoItem>
-            <RentalInfoItem>{splittedRentalConditions[1]}</RentalInfoItem>
-            <RentalInfoItem>{splittedRentalConditions[2]}</RentalInfoItem>
+            <RentalInfoItem>{t('secondRentalCondition')}</RentalInfoItem>
             <RentalInfoItem>
-              Mileage: <span>{mileage.toLocaleString('en-EN')}</span>
+              {t(`cars.${id}.thirdRentalCondition`)}
             </RentalInfoItem>
             <RentalInfoItem>
-              Price: <span>{rentalPrice}</span>
+              {t('mileage')}: <span>{mileage.toLocaleString('en-EN')}</span>
+            </RentalInfoItem>
+            <RentalInfoItem>
+              {t('rentalPrice')}: <span>{rentalPrice}</span>
             </RentalInfoItem>
           </RentalInfo>
 
-          <RentalLink href="tel:+380730000000">Rental car</RentalLink>
+          <RentalLink href="tel:+380730000000">{t('rentalButton')}</RentalLink>
         </Wrapper>
       </ModalWrapper>
     </ModalBackdrop>,

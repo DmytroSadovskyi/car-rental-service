@@ -12,6 +12,8 @@ import {
   FilterButton,
 } from './Filter.styled';
 
+import { useTranslation } from 'react-i18next';
+
 const Filter = ({
   makeFilter,
   priceFilter,
@@ -24,6 +26,8 @@ const Filter = ({
   onApplyFilters,
   children,
 }) => {
+  const { t } = useTranslation();
+
   const [makeMenuIsOpen, setMakeMenuIsOpen] = useState(false);
   const [priceMenuIsOpen, setPriceMenuIsOpen] = useState(false);
 
@@ -148,7 +152,7 @@ const Filter = ({
     <FilterContainer>
       <SelectWrapper>
         <MileageInputsWrapper>
-          <Label htmlFor="brand">Car brand</Label>
+          <Label htmlFor="brand">{t('brandInput')}</Label>
           <Select
             inputId="brand"
             options={makeOptions}
@@ -158,12 +162,12 @@ const Filter = ({
             menuIsOpen={makeMenuIsOpen}
             onMenuOpen={() => setMakeMenuIsOpen(true)}
             onMenuClose={() => setMakeMenuIsOpen(false)}
-            placeholder="Enter the text"
+            placeholder={t('brandPlaceholder')}
             onKeyDown={handleMakeKeyDown}
           />
         </MileageInputsWrapper>
         <MileageInputsWrapper>
-          <Label htmlFor="price">Price/ 1 hour</Label>
+          <Label htmlFor="price">{t('priceInput')}</Label>
           <Select
             inputId="price"
             options={priceOptions}
@@ -175,13 +179,13 @@ const Filter = ({
             menuIsOpen={priceMenuIsOpen}
             onMenuOpen={() => setPriceMenuIsOpen(true)}
             onMenuClose={() => setPriceMenuIsOpen(false)}
-            placeholder="To $"
+            placeholder={t('pricePlaceholder')}
             onKeyDown={handlePriceKeyDown}
           />
         </MileageInputsWrapper>
       </SelectWrapper>
       <MileageInputsWrapper>
-        <Label htmlFor="mileage">Сar mileage / km</Label>
+        <Label htmlFor="mileage">{t('mileageInput')}</Label>
         <InputsWrapper>
           <MileageInputLeft
             id="mileage"
@@ -193,7 +197,7 @@ const Filter = ({
                 min: e.target.value,
               })
             }
-            placeholder="From"
+            placeholder={t('leftPlaceholder')}
           />
           <MileageInputRight
             type="text"
@@ -204,7 +208,7 @@ const Filter = ({
                 max: e.target.value,
               })
             }
-            placeholder="To"
+            placeholder={t('rightPlaceholder')}
           />
         </InputsWrapper>
       </MileageInputsWrapper>
@@ -216,10 +220,10 @@ const Filter = ({
             onApplyFilters();
           }}
         >
-          Search
+          {t('search')}
         </FilterButton>
         <FilterButton type="button" onClick={handleReset}>
-          Reset
+          {t('reset')}
         </FilterButton>
       </ButtonsWrapper>
       {children}

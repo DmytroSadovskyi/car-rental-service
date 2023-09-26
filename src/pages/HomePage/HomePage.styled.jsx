@@ -89,7 +89,8 @@ export const BenefitsTitle = styled.h2`
     width: 300px;
     text-align: center;
   }
-  width: 353px;
+  max-width: 390px;
+  text-align: center;
   margin: 0 auto;
   margin-bottom: 25px;
 `;
@@ -162,7 +163,8 @@ export const ReviewsContainer = styled.div`
 `;
 
 export const ReviewsTitle = styled.h2`
-  max-width: 300px;
+  max-width: 320px;
   margin: 0 auto;
   margin-bottom: 25px;
+  text-align: center;
 `;

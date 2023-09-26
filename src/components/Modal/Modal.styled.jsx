@@ -27,6 +27,20 @@ export const ModalWrapper = styled.div`
   border-radius: 24px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(18, 20, 23, 0.05);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  &::-webkit-scrollbar-track {
+    background: #fff;
+  }
+
   @media screen and (max-height: 815px) {
     height: 600px;
     overflow-y: scroll;

@@ -16,61 +16,48 @@ import {
 import { ReviewsSlider } from 'components/ReviewsSlider/ReviewsSlider';
 import reviews from '../../reviews.json';
 import { Container } from 'components/SharedLayout/SharedLayout.styled';
+import { useTranslation } from 'react-i18next';
 
 const HomePage = () => {
+  const { t } = useTranslation();
   return (
     <>
       <Hero>
         <HeroContainer>
           <HeroTitle>DreamCar Rental</HeroTitle>
-          <HeroDescription>
-            Unforgettable adventures start here! Explore the open road,
-            experience the joy of discovery, and enjoy hassle-free mobility.
-          </HeroDescription>
+          <HeroDescription>{t('hero')}</HeroDescription>
           <LinkWrapper>
-            <StyledLink to="/catalog">Explore Our Cars</StyledLink>
+            <StyledLink to="/catalog">{t('buttonText')}</StyledLink>
           </LinkWrapper>
         </HeroContainer>
       </Hero>
 
       <section>
         <Container>
-          <BenefitsTitle>Why choose DreamCar Rental?</BenefitsTitle>
+          <BenefitsTitle>{t('benefitsTitle')}</BenefitsTitle>
           <BenefitsList>
             <BenefitsItem>
-              <BenefitTitle>Wide Selection</BenefitTitle>
-              <BenefitText>
-                Choose from a diverse range of cars, from elegant sedans to
-                adventurous SUVs.
-              </BenefitText>
+              <BenefitTitle>{t('firstBenefitTitle')}</BenefitTitle>
+              <BenefitText>{t('firstBenefitDesc')}</BenefitText>
             </BenefitsItem>
             <BenefitsItem>
-              <BenefitTitle>Easy Booking</BenefitTitle>
-              <BenefitText>
-                Our user-friendly website make booking a breeze. Reserve your
-                dream car in seconds.
-              </BenefitText>
+              <BenefitTitle>{t('secondBenefitTitle')}</BenefitTitle>
+              <BenefitText>{t('secondBenefitDesc')}</BenefitText>
             </BenefitsItem>
             <BenefitsItem>
-              <BenefitTitle>Quality Assurance</BenefitTitle>
-              <BenefitText>
-                Rest easy knowing our vehicles are meticulously maintained and
-                cleaned for your safety.
-              </BenefitText>
+              <BenefitTitle>{t('thirdBenefitTitle')}</BenefitTitle>
+              <BenefitText>{t('thirdBenefitDesc')}</BenefitText>
             </BenefitsItem>
             <BenefitsItem>
-              <BenefitTitle>Competitive Pricing</BenefitTitle>
-              <BenefitText>
-                Affordable Luxury: Experience high-end comfort without the high
-                price tag.
-              </BenefitText>
+              <BenefitTitle>{t('fourthBenefitTitle')}</BenefitTitle>
+              <BenefitText>{t('fourthBenefitDesc')}</BenefitText>
             </BenefitsItem>
           </BenefitsList>
         </Container>
       </section>
       <section>
         <ReviewsContainer>
-          <ReviewsTitle>What our Customers Say?</ReviewsTitle>
+          <ReviewsTitle>{t('reviewsTitle')}</ReviewsTitle>
           <ReviewsSlider reviews={reviews} />
         </ReviewsContainer>
       </section>
