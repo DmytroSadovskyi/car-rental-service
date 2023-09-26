@@ -7,10 +7,10 @@ i18n
   .init({
     resources: {
       en: {
-        translation: require('./en.json'),
+        translation: require('./locales/en.json'),
       },
       uk: {
-        translation: require('./uk.json'),
+        translation: require('./locales/uk.json'),
       },
     },
     lng: localStorage.getItem('i18nextLng') || 'en',
